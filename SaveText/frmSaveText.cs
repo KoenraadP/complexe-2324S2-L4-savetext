@@ -20,9 +20,18 @@ namespace SaveText
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            // waar en onder welke naam moet het bestand
-            // bewaard worden
-            string path = @"C:\verhalen\" + txtTitle.Text + ".txt";
+            // map die we willen gebruiken
+            string path = @"C:\verhalen\";
+
+            // controleren of map al bestaat
+            // als de map nog niet bestaat, deze aanmaken
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            
+            // titel + extensie toevoegen aan path
+            path += txtTitle.Text + ".txt";
 
             // inhoud van grote textbox in file 'schrijven'
             // path = waar moet het bestand bewaard worden
