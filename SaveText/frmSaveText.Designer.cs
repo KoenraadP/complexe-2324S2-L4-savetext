@@ -73,6 +73,7 @@
             // ofd
             // 
             this.ofd.FileName = "openFileDialog1";
+            this.ofd.FileOk += new System.ComponentModel.CancelEventHandler(this.ofd_FileOk);
             // 
             // frmSaveText
             // 

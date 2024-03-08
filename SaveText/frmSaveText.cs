@@ -54,5 +54,20 @@ namespace SaveText
             // venster openen om bestanden te kiezen
             ofd.ShowDialog();
         }
+
+        private void ofd_FileOk(object sender, CancelEventArgs e)
+        {
+            // volledige pad + bestandsnaam opslaan in variabele
+            // bvb: "C:\verhalen\kleinduimpje.txt"
+            string path = ofd.FileName;
+
+            // volledige inhoud van bestand in onderste
+            // textbox plaatsen
+            txtStory.Text = File.ReadAllText(path);
+
+            // naam van bestand ZONDER EXTENSIE
+            // in textbox bovenaan plaatsen
+            txtTitle.Text = Path.GetFileNameWithoutExtension(path);
+        }
     }
 }
