@@ -33,10 +33,20 @@ namespace SaveText
             // titel + extensie toevoegen aan path
             path += txtTitle.Text + ".txt";
 
-            // inhoud van grote textbox in file 'schrijven'
-            // path = waar moet het bestand bewaard worden
-            // txtStory.Text --> de tekst die in het bestand moet komen
-            File.WriteAllText(path, txtStory.Text);
+            // messagebox om te vragen of je het zeker wil opslaan
+            DialogResult result = MessageBox.Show("Wil je het bestand bewaren?",
+                "Bevestigen", 
+                MessageBoxButtons.YesNo, 
+                MessageBoxIcon.Question);
+
+            // als er op 'Ja' geklikt wordt
+            if (result == DialogResult.Yes)
+            {
+                // inhoud van grote textbox in file 'schrijven'
+                // path = waar moet het bestand bewaard worden
+                // txtStory.Text --> de tekst die in het bestand moet komen
+                File.WriteAllText(path, txtStory.Text);
+            }            
         }
     }
 }
