@@ -48,5 +48,11 @@ namespace SaveText
                 File.WriteAllText(path, txtStory.Text);
             }            
         }
+
+        private void btnOpen_Click(object sender, EventArgs e)
+        {
+            // venster openen om bestanden te kiezen
+            ofd.ShowDialog();
+        }
     }
 }
